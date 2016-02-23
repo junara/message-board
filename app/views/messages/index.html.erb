@@ -1,52 +1,35 @@
-
-
-<!--
-<h1>Messages#index</h1>
-
-<p>Find me in app/views/messages/index.html.erb</p>
--->
-
-<!--
-<div class="panel panel-default">
-    <div class="panel-heading">
-        メッセージ一覧です。
-    </div>
-    <div class="panel-body">
--->
+<!-- 投稿の表示 -->
 <div class="panel panel-default">
     <div class="panel-heading">
         メッセージ一覧
     </div>
     <div class="panel-body">
         <% @messages.each do |message| %>
-    <div class = "row">
-
-            <div class = "col-xs-12 col-sm-1"><span class="label label-info"><%= message.name %></span></div>
-            <div class = "col-xs-12 col-sm-11"><%= simple_format(h(message.body)) %></div>
+    <div class = "row"> <!-- モバイルの時は1段組、それ以外は2段組 -->
+        <div class = "col-xs-12 col-sm-1"><span class="label label-info"><%= message.name %></span></div>
+        <div class = "col-xs-12 col-sm-11"><%= simple_format(h(message.body)) %></div> <!-- 改行をきちんと表示する -->
     </div>
-
         <% end %>
     </div>
 </div>
 
-    <h3>投稿</h3>
-        <div class="form-horizontal" role="form">
+<!-- フォーム -->
+<h3>投稿</h3>
+    <div class="form-horizontal" role="form">
         <%= form_for(@message) do |f| %>
-        <div class="form-group">
+        <div class="form-group"><!-- タブレットの時は1段組、それ以外は2段組 -->
             <label class="col-sm-2 control-label">名前:</label>
             <div class="col-sm-10">
-                <%= f.text_field :name, class: 'form-control', placeholder: '名前' %>
+                <%= f.text_field :name, class: 'form-control', placeholder: '名前' %> 
             </div>
         </div>
-        
-        <div class="form-group">
+        <div class="form-group"><!-- タブレットの時は1段組、それ以外は2段組 -->
             <label class="col-sm-2 control-label">内容:</label>
             <div class="col-sm-10">
                 <%= f.text_area :body, class: 'form-control', placeholder: '内容', rows: '4' %>
             </div>
         </div>
-        
-        <div class="form-group">
+        <div class="form-group"><!-- タブレットの時は1段組、それ以外は2段組 -->
             <div class="col-sm-offset-2 col-sm-10">
                 <%= f.submit %>
             </div>
