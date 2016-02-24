@@ -29,9 +29,9 @@
                 <%= f.text_area :body, class: 'form-control', placeholder: '内容', rows: '4' %>
             </div>
         </div>
-        <div class="form-group"><!-- タブレットの時は1段組、それ以外は2段組 -->
+        <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <%= f.submit %>
+                <%= f.submit "送信" , class: 'btn btn-primary btn-large btn-block' %>
             </div>
         </div>
         <% end %>
