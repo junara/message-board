@@ -6,11 +6,10 @@
     <div class="panel-body">
         <% @messages.each do |message| %>
     <div class = "row"> <!-- モバイルの時は1段組、それ以外は2段組 -->
-        <div class = "col-xs-12 col-sm-1"><span class="label label-info"><%= message.name %></span></div>
-        <div class = "col-xs-12 col-sm-8"><%= simple_format(h(message.body)) %></div> <!-- 改行をきちんと表示する -->
-        <div class = "col-xs-12 col-sm-1"><span class="label label-info"><%= link_to "表示" , message_path(message) %></span></div>
-        <div class = "col-xs-12 col-sm-1"><span class="label label-info"><%= link_to "編集" , edit_message_path(message) %></span></div>
-        <div class = "col-xs-12 col-sm-1"><span class="label label-info"><%= link_to "削除" , message , method: :delete, data: {confirm: '削除してもよろしいですか？'} %></span></div>
+        <div class = "col-xs-6 col-sm-2"><span class="label label-info"><%= message.name %></span></div>
+        <div class = "col-xs-6 col-sm-2"><%= message.age %>才</span></div>
+        <div class = "col-xs-12 col-sm-5"><%= simple_format(h(message.body)) %></div> <!-- 改行をきちんと表示する -->
+        <div class = "col-xs-4 col-sm-3"><span class="label label-info"><%= link_to "表示" , message_path(message) %></span>/<span class="label label-info"><%= link_to "編集" , edit_message_path(message) %></span>/<span class="label label-info"><%= link_to "削除" , message , method: :delete, data: {confirm: '削除してもよろしいですか？'} %></span></div>
     </div>
         <% end %>
     </div>
