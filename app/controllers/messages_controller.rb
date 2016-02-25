@@ -7,6 +7,8 @@ before_action :set_message , only: [:edit, :update, :destroy]
     # Messageを全て取得する。
     #複数形には意味があるのか？
     @messages = Message.all #viewで使うmessagesテーブルの内容を全て入れておく。
+    # @messages = Message.find(4) #viewで使うmessagesテーブルの内容を全て入れておく。
+    
   end
   
   def create
@@ -23,6 +25,12 @@ before_action :set_message , only: [:edit, :update, :destroy]
 
   def edit
   end
+  
+  def show
+      @message = Message.find(params[:id]) #URLから直接paramsを読んでいる。
+      render 'show'
+  end
+  
   
   def update
     if @message.update(message_params)
